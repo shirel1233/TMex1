@@ -37,7 +37,7 @@ int main() {
         }
         printf("\n");
     }
-    if(num1>num2){
+    else{
 
         printf("The Armstrong numbers are:");
         for (int i = num2; i <= num1; i++) {

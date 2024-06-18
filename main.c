@@ -1,5 +1,7 @@
 #include <stdio.h>
 #include "NumClass.h"
+#include "basicClassification.c"
+#include "advancedClassificationLoop.c"
 
 int main() {
     int num1, num2;
@@ -30,10 +32,10 @@ int main() {
         printf("The Strong numbers are:");
         for (int i = num1; i <= num2; i++) {
             if (isStrong(i)) {
-                printf(" %d ", i);
+                printf(" %d", i);
+        }
         }
         printf("\n");
-        }
     }
     if(num1>num2){
 
@@ -59,11 +61,10 @@ int main() {
         printf("The Strong numbers are:");
         for (int i = num2; i <= num1; i++) {
             if (isStrong(i)) {
-                printf(" %d ", i);
+                printf(" %d", i);
+            }
         }
         printf("\n");
-
-        }
 
     }
 }

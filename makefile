@@ -1,6 +1,7 @@
 CC = gcc
 AR = ar
 CFLAGS = -Wall -g
+LIBS = -lm
 
 OBJECT_MAIN = main.o
 OBJECT_LOOP = advancedClassificationLoop.o basicClassification.o
@@ -25,16 +26,16 @@ libclassrec.so: $(OBJECT_REC)
 	$(CC) -shared -o libclassrec.so $(OBJECT_REC)
 
 mains: $(OBJECT_MAIN) libclassrec.a
-	$(CC) $(CFLAGS) -o mains $(OBJECT_MAIN) libclassrec.a
+	$(CC) $(CFLAGS) -o mains $(OBJECT_MAIN) libclassrec.a $(LIBS)
 
 maindloop: $(OBJECT_MAIN)
-	$(CC) $(CFLAGS) -o maindloop $(OBJECT_MAIN) ./libclassloops.so
+	$(CC) $(CFLAGS) -o maindloop $(OBJECT_MAIN) ./libclassloops.so $(LIBS)
 
 maindrec: $(OBJECT_MAIN)
-	$(CC) $(CFLAGS) -o maindrec $(OBJECT_MAIN) ./libclassrec.so
+	$(CC) $(CFLAGS) -o maindrec $(OBJECT_MAIN) ./libclassrec.so $(LIBS)
 
-avancedClassificationLoop.o: avancedClassificationLoop.c NumClass.h
-	$(CC) $(CFLAGS) -c avancedClassificationLoop.c
+advancedClassificationLoop.o: advancedClassificationLoop.c NumClass.h
+	$(CC) $(CFLAGS) -c advancedClassificationLoop.c
 
 advancedClassificationRecursion.o: advancedClassificationRecursion.c NumClass.h
 	$(CC) $(CFLAGS) -c advancedClassificationRecursion.c
@@ -49,9 +50,3 @@ main.o: main.c NumClass.h
 
 clean:
 	rm -f *.o *.a *.so mains maindloop maindrec
-
-
-
-
-
-

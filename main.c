@@ -52,7 +52,7 @@ int main() {
         printf("\n");
 
         
-        printf("the Prime numbers are:");
+        printf("The Prime numbers are:");
         for (int i = num2; i <= num1; i++) {
             if (isPrime(i)) printf(" %d", i);
         }
